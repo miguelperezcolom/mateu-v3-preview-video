@@ -5,6 +5,7 @@ import io.mateu.uidl.annotations.MateuUI;
 import io.mateu.uidl.annotations.MenuOption;
 import io.mateu.uidl.annotations.RawContent;
 import io.mateu.uidl.interfaces.HasLogout;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 
 @MateuUI("")
 @KeycloakSecured(
@@ -23,7 +24,7 @@ public class Home implements HasLogout {
     String content = "Hello :)";
 
     @Override
-    public String getLogoutUrl() {
+    public String getLogoutUrl(ServerHttpRequest serverHttpRequest) {
         return "https://lemur-18.cloud-iam.com/auth/realms/demomateu/protocol/openid-connect/logout?" +
                 "client_id=demo" +
                 "&post_logout_redirect_uri=http://localhost:8080";

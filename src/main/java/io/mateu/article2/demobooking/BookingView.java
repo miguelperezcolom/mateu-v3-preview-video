@@ -32,7 +32,9 @@ record Info(
 @RequiredArgsConstructor
 public class BookingView implements UpdatesUrlFragment, Container {
 
+    @Ignored
     private final Article2Client article2Client;
+    @Ignored
     String id;
 
     @HorizontalLayouted
